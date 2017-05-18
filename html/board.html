@@ -1,0 +1,57 @@
+
+<div><button ng-click="newGame();gameoption='true'">New Game</button></div>    
+        
+
+<div ng-show="gameoption">
+    <h1>{{curPlayer}}'s turn</h1>
+    <div ng-repeat="player in players">
+        {{player.name}}'s HP: {{player.hp}}
+    </div>
+    <div ng-repeat="player in players">
+        <h2 ng-if="locatePlayer(player.name)==100">{{player.name}} wins!</h2>
+    </div>
+    <button ng-click="playerTurn()">Roll Dice</button>
+    <div class="dice">
+        <div>Dice 1 is: {{Dice1}}</div>
+        <div>Dice 2 is: {{Dice2}}</div>
+        
+       <!-- 3rd dice!!!-->
+    </div>
+
+
+
+<div class="rows" ng-repeat="row in board">
+    <div class="cells"  ng-repeat="cell in row track by $index">
+        <table>
+            <tr >
+                <td class="tilenum">{{cell.tileNum}}</td>
+                <td rowspan="3">
+                    <img class="playerimg" src="../img/dino.png" ng-if="cell.tileNum == locatePlayer(players[0].name)">
+                    <img class="playerimg" src="../img/snake.png" ng-if="cell.tileNum == locatePlayer(players[1].name)">
+                    <img class="playerimg" src="../img/snake2.png" ng-if="cell.tileNum == locatePlayer(players[2].name)">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img class="SnL" src="../img/ladder.png" ng-if="cell.ladder>0">
+                    <img class="SnL" src="../img/snakeobs.png" ng-if="cell.snake>0">
+                    <img class="SnL" src="../img/spikes.png" ng-if="cell.spikes>0">
+                </td>
+            </tr>
+            <tr>
+                <td class="specialtiles" ng-if="cell.ladder>0 || cell.snake>0">
+                    {{cell.tileNum+cell.ladder-cell.snake}}
+                </td>
+                <td class="specialtiles" ng-if="cell.spikes>0">
+                    -{{cell.spikes}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+            
+</div>           
+            
+            
+        
+

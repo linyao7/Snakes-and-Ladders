@@ -1,0 +1,54 @@
+
+.cells{
+    
+    
+    width: 70px;
+	height: 70px;
+    display: inline-block;
+    vertical-align: bottom;
+    border-style: ridge;
+    border-width: 5px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-color: black;
+    max-height: 100%;
+    max-width: 100%;
+
+}
+
+.cells:last-child {
+    border-right-width: 5px;
+}
+
+.rows:last-child .cells {
+    border-bottom-width: 5px;
+}
+
+
+.playerimg{
+    transition: 0.2s linear all;
+   
+    display:block;
+    margin: auto ;
+    max-height:75%;
+    max-width: 75%;
+    
+}
+
+.SnL{
+    display:block;
+    max-height:30%;
+    max-width: 30%;
+    
+}
+
+.tilenum{
+    vertical-align: top;
+}
+
+td{
+    border-width: 1px;
+    border-color: black;
+   /* border-style: dotted;*/
+    
+}
